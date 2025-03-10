@@ -10,19 +10,19 @@
  */
 class Solution {
      public ListNode removeNodes(ListNode head) {
-        ListNode current=reverse(head);
-        ListNode temp=current;
-        int max=current.val;
-        while(temp.next!=null){
-        if(temp.next.val>=max){
-            temp=temp.next;
-            max=temp.val;
+         head=reverse(head);
+        ListNode temp=head;
+        int max=head.val;
+        while(head.next!=null){
+        if(head.next.val>=max){
+            head=head.next;
+            max=head.val;
         }
         else{
-            temp.next=temp.next.next;
+            head.next=head.next.next;
         }
      }
-      return reverse(current);
+      return reverse(temp);
      }
     public ListNode reverse(ListNode head) {
         ListNode prev=null;
