@@ -9,7 +9,22 @@
  * }
  */
 class Solution {
-    public ListNode removeNodes(ListNode head) {
+     public ListNode removeNodes(ListNode head) {
+        ListNode current=reverse(head);
+        ListNode temp=current;
+        int max=current.val;
+        while(temp.next!=null){
+        if(temp.next.val>=max){
+            temp=temp.next;
+            max=temp.val;
+        }
+        else{
+            temp.next=temp.next.next;
+        }
+     }
+      return reverse(current);
+     }
+    public ListNode reverse(ListNode head) {
         ListNode prev=null;
         ListNode current = head;
         ListNode next=head.next;
@@ -20,7 +35,6 @@ class Solution {
             current=next;
         }
         head=prev;
+        return head;
+        }
     }
-    return head;
-}
-}
